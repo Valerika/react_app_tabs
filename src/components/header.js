@@ -2,7 +2,7 @@ import React from 'react';
 
 import {NavLink} from 'react-router-dom';
 
-const json = require('../tabs.json');
+const tabs = require('../tabs.json');
 
 const Header = () => {
     return (
@@ -10,7 +10,7 @@ const Header = () => {
             <nav>
                 <ul className="tabs">
                     {
-                        json.map(tab => (
+                        tabs.map(tab => (
                             <li key={tab.id}>
                                 <NavLink exact id={tab.id} activeClassName="tab-current" to={`/tab/${tab.id}`}
                                          order={tab.order} path={tab.path}>{tab.title}</NavLink>
