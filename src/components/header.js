@@ -4,6 +4,8 @@ import {NavLink} from 'react-router-dom';
 
 const tabs = require('../tabs.json');
 
+tabs.sort((a, b) => a.order > b.order);
+
 const Header = () => {
     return (
         <header id="tabs" className="tabs">
@@ -12,8 +14,8 @@ const Header = () => {
                     {
                         tabs.map(tab => (
                             <li key={tab.id}>
-                                <NavLink exact id={tab.id} activeClassName="tab-current" to={`/tab/${tab.id}`}
-                                         order={tab.order} path={tab.path}>{tab.title}</NavLink>
+                                <NavLink exact id={tab.id} activeClassName="tab-current" to={`/${tab.id}`}
+                                         order={tab.order}>{tab.title}</NavLink>
                             </li>
                         ))
                     }

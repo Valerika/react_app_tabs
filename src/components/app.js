@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Header from './header';
-import Main from './main';
+import Routes from './routes';
 
 const App = () => (
-    <div className="wrapper">
+    <div className="page">
         <Header/>
-        <Main/>
+        <Routes/>
     </div>
 )
 

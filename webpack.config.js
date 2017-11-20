@@ -8,19 +8,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = {
     context: path.join(__dirname, 'src'),
     entry: {
-        app: ['./root.js'],
+        app: ['babel-polyfill', 'react-hot-loader/patch', './root.js'],
         style: ['./style.css']
     },
     output: {
-        path: path.join(__dirname, 'public/'),
+        path: __dirname + "public/",
         filename: '[name].bundle.js',
         chunkFilename: '[name].chunk.js',
+        publicPath: '/'
     },
     devServer: {
         contentBase: __dirname + "/public/",
         inline: true,
         host: 'localhost',
         port: 8080,
+        historyApiFallback: true,
     },
     module: {
         rules: [{
@@ -41,7 +43,7 @@ const config = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2017', 'react', 'es2015'],
+                        presets: ['env', 'react', 'stage-0'],
                         cacheDirectory: true
                     }
                 }]
