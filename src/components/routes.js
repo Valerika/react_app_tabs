@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
-import Loadable from 'react-loadable';
-
 const tabs = require('../tabs.json');
 
 class Routes extends Component {
